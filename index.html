@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mohamed Ehab Mahmoud Fahmy — Open Pit Mine Geologist specializing in grade control, ore control, blast movement monitoring, geological mapping and QA/QC.">
+<title>Mohamed Ehab Fahmy | Open Pit Mine Geologist</title>
+<style>
+:root{
+  --bg:#111412; --panel:#181c19; --panel2:#202520; --text:#f1f0e8;
+  --muted:#aeb3aa; --accent:#c6a15b; --line:#343a34; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(17,20,18,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.04em}.logo span{color:var(--accent)}
+.links{display:flex;gap:25px;font-size:.9rem;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.btn{display:inline-block;padding:12px 18px;border:1px solid var(--accent);color:var(--accent);border-radius:6px;font-weight:700;font-size:.9rem}
+.hero{min-height:calc(100vh - 72px);display:grid;align-items:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:
+linear-gradient(115deg,rgba(17,20,18,.98) 25%,rgba(17,20,18,.78) 62%,rgba(17,20,18,.35)),
+repeating-linear-gradient(25deg,transparent 0 70px,rgba(198,161,91,.05) 71px 72px)}
+.hero-content{position:relative;padding:90px 0}
+.eyebrow{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+h1{font-size:clamp(3rem,7vw,6.3rem);line-height:.98;max-width:850px;margin:18px 0 26px;letter-spacing:-.045em}
+.hero p{max-width:720px;color:var(--muted);font-size:1.15rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn.primary{background:var(--accent);color:#171711;border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:65px;border:1px solid var(--line)}
+.stat{background:var(--panel);padding:22px}.stat strong{display:block;font-size:1.5rem;color:var(--accent)}.stat span{color:var(--muted);font-size:.82rem}
+section{padding:100px 0;border-top:1px solid var(--line)}
+.section-head{display:flex;justify-content:space-between;gap:30px;margin-bottom:45px}
+.section-head h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05}
+.section-head p{max-width:530px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);padding:28px;border-radius:8px}
+.card h3{margin:12px 0 10px;font-size:1.25rem}.card p{color:var(--muted);font-size:.94rem}
+.number{font-family:Georgia,serif;color:var(--accent);font-size:1.5rem}
+.timeline{border-left:1px solid var(--accent);padding-left:30px;display:grid;gap:34px;max-width:850px}
+.role{position:relative}.role:before{content:"";position:absolute;left:-36px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.role .date{color:var(--accent);font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.role h3{font-size:1.35rem;margin:5px 0}.role h4{color:var(--muted);font-weight:500;margin-bottom:10px}.role p{color:var(--muted)}
+.project{display:grid;grid-template-columns:1fr 1.6fr;gap:0;border:1px solid var(--line);background:var(--panel);margin-bottom:18px;border-radius:8px;overflow:hidden}
+.project-visual{min-height:280px;background:
+linear-gradient(135deg,rgba(198,161,91,.18),transparent),
+repeating-linear-gradient(155deg,transparent 0 28px,rgba(198,161,91,.09) 29px 30px);
+display:flex;align-items:flex-end;padding:28px}
+.project-visual strong{font-size:3rem;font-family:Georgia,serif;color:rgba(241,240,232,.75)}
+.project-body{padding:34px}.project-body h3{font-size:1.7rem;margin-bottom:8px}.project-body p{color:var(--muted);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{border:1px solid var(--line);padding:5px 9px;border-radius:20px;font-size:.75rem;color:var(--muted)}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.skill{background:var(--panel);border:1px solid var(--line);padding:24px;border-radius:8px}
+.skill h3{margin-bottom:12px}.skill-list{display:flex;flex-wrap:wrap;gap:8px}.skill-list span{background:var(--panel2);padding:7px 10px;border-radius:4px;color:var(--muted);font-size:.82rem}
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.award{padding:25px;background:var(--panel);border:1px solid var(--line);border-radius:8px}.award strong{display:block;color:var(--accent);margin-bottom:5px}.award span{color:var(--muted);font-size:.9rem}
+.contact{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start}.contact h2{font-size:clamp(2.3rem,5vw,4.5rem);line-height:1}
+.contact-box{background:var(--panel);border:1px solid var(--line);padding:28px;border-radius:8px}.contact-row{padding:13px 0;border-bottom:1px solid var(--line)}.contact-row:last-child{border:0}.contact-row small{display:block;color:var(--accent);text-transform:uppercase;font-size:.7rem;letter-spacing:.1em}.contact-row a{color:var(--muted)}
+footer{padding:28px 0;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);display:flex;justify-content:space-between}
+@media(max-width:800px){
+ .links{display:none}.stats,.grid,.awards{grid-template-columns:1fr 1fr}.project,.contact,.skills{grid-template-columns:1fr}
+ .project-visual{min-height:180px}.hero-content{padding:70px 0}
+}
+@media(max-width:520px){.stats,.grid,.awards{grid-template-columns:1fr}section{padding:70px 0}h1{font-size:3.2rem}}
+</style>
+</head>
+<body>
+<nav><div class="container navin">
+  <a class="logo" href="#home">ME<span>F</span></a>
+  <div class="links">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+  </div>
+  <a class="btn" href="Mohamed-Ehab-Fahmy-CV.pdf">Download CV</a>
+</div></nav>
+
+<main>
+<section class="hero" id="home"><div class="container hero-content">
+  <div class="eyebrow">Open Pit Mine Geologist · Sukari Gold Mines</div>
+  <h1>Turning geological data into better mining decisions.</h1>
+  <p>Mine Geologist with hands-on experience in grade control, ore control, blast movement monitoring, geological mapping, sampling QA/QC and short-term geological support in open-pit gold mining.</p>
+  <div class="actions"><a class="btn primary" href="#projects">Explore My Work</a><a class="btn" href="#contact">Contact Me</a></div>
+  <div class="stats">
+    <div class="stat"><strong>2021–Present</strong><span>Sukari Gold Mines</span></div>
+    <div class="stat"><strong>1st</strong><span>University class rank</span></div>
+    <div class="stat"><strong>Grade Control</strong><span>Core operational focus</span></div>
+    <div class="stat"><strong>BMM</strong><span>Blast movement monitoring</span></div>
+  </div>
+</div></section>
+
+<section id="about"><div class="container">
+ <div class="section-head"><h2>About<br>the geologist.</h2><p>I work at the interface between geology and mining operations—using drilling, sampling, mapping, modelling and field observations to support accurate ore delineation and practical mining decisions.</p></div>
+ <div class="grid">
+  <div class="card"><span class="number">01</span><h3>Operational Geology</h3><p>Grade control, ore/waste boundary control, ore spotting, ROM pad management and support for short- and medium-term mine planning.</p></div>
+  <div class="card"><span class="number">02</span><h3>Data Quality</h3><p>Sampling recovery, laboratory QA/QC, survey and downhole data validation, and reliable geological database inputs.</p></div>
+  <div class="card"><span class="number">03</span><h3>Geological Interpretation</h3><p>Mapping lithology, alteration and structures, integrating geological and grade-control data to refine ore zones and mineralization interpretation.</p></div>
+ </div>
+</div></section>
+
+<section id="experience"><div class="container">
+ <div class="section-head"><h2>Experience</h2><p>A progression from graduate mine geology into a broader operational Mine Geologist role at Sukari Gold Mines.</p></div>
+ <div class="timeline">
+  <div class="role"><div class="date">Mar 2024 — Present</div><h3>Mine Geologist</h3><h4>Sukari Gold Mines · Marsa Alam, Egypt</h4><p>Grade control and ore control; ore spotting; ROM pad and crusher-feed support; clay-content management; BMM; geological mapping; block-model support; drilling forecasts; and weekly/monthly operational reporting.</p></div>
+  <div class="role"><div class="date">Oct 2021 — Mar 2024</div><h3>Graduate Mine Geologist</h3><h4>Sukari Gold Mines · Marsa Alam, Egypt</h4><p>Grade-control drilling and design, drill-hole logging, sample dispatch, recovery monitoring, QA/QC, geological database validation, survey verification and pit-wall mapping.</p></div>
+  <div class="role"><div class="date">2016 — 2020</div><h3>B.Sc. Geology–Geophysics</h3><h4>Alexandria University · Faculty of Science</h4><p>Very Good with Honor · GPA 3.38 · Ranked 1st.</p></div>
+ </div>
+</div></section>
+
+<section id="projects"><div class="container">
+ <div class="section-head"><h2>Selected<br>Projects</h2><p>Case-study areas that demonstrate how I apply geological information in exploration and mining workflows. Site-sensitive information should only be published with the appropriate authorization.</p></div>
+ <article class="project"><div class="project-visual"><strong>01</strong></div><div class="project-body"><h3>Grade Control & Ore Control</h3><p>Bench-by-bench drilling design, logging, sampling, QA/QC and geological interpretation to support ore delineation and selective mining.</p><div class="tags"><span class="tag">GC Drilling</span><span class="tag">Ore Delineation</span><span class="tag">QA/QC</span><span class="tag">Ore Spotting</span></div></div></article>
+ <article class="project"><div class="project-visual"><strong>02</strong></div><div class="project-body"><h3>Blast Movement Monitoring</h3><p>Design and implementation of BMM workflows, followed by movement analysis and post-blast ore-boundary updates.</p><div class="tags"><span class="tag">BMM Design</span><span class="tag">Movement Analysis</span><span class="tag">Post-Blast Interpretation</span></div></div></article>
+ <article class="project"><div class="project-visual"><strong>03</strong></div><div class="project-body"><h3>Weathering Profile & Underground Exploration</h3><p>Created a weathering profile after GC drilling and logging; correlated weathering, structures and mineralization and supported ore modelling and spotting decisions.</p><div class="tags"><span class="tag">Core Logging</span><span class="tag">Structures</span><span class="tag">Mineralization</span><span class="tag">Ore Modelling</span></div></div></article>
+ <article class="project"><div class="project-visual"><strong>04</strong></div><div class="project-body"><h3>Geological Mapping & Mineralization Controls</h3><p>Detailed pit-wall and floor mapping focused on lithological variation, alteration and structural controls, integrated with grade-control information.</p><div class="tags"><span class="tag">Mapping</span><span class="tag">Alteration</span><span class="tag">Structures</span><span class="tag">Interpretation</span></div></div></article>
+</div></section>
+
+<section id="skills"><div class="container">
+ <div class="section-head"><h2>Technical<br>Toolkit</h2><p>A practical combination of mining geology, 3D modelling, spatial data, reporting and analytical tools.</p></div>
+ <div class="skills">
+  <div class="skill"><h3>Mining & Geological Software</h3><div class="skill-list"><span>Maptek Vulcan</span><span>Geovia Surpac</span><span>Leapfrog</span><span>DHLogger</span><span>BMM</span></div></div>
+  <div class="skill"><h3>Data & Analytics</h3><div class="skill-list"><span>Microsoft Excel</span><span>Power BI</span><span>SQL</span><span>Microsoft Access</span><span>GIS</span></div></div>
+  <div class="skill"><h3>Geological Workflows</h3><div class="skill-list"><span>Grade Control</span><span>Ore Control</span><span>Ore Spotting</span><span>Geological Mapping</span><span>Sampling QA/QC</span><span>Core Logging</span></div></div>
+  <div class="skill"><h3>Design & Communication</h3><div class="skill-list"><span>Photoshop</span><span>Illustrator</span><span>InDesign</span><span>Technical Reporting</span><span>Presentation</span></div></div>
+ </div>
+</div></section>
+
+<section id="achievements"><div class="container">
+ <div class="section-head"><h2>Achievements</h2><p>Recognition across academic, operational and safety-related activities.</p></div>
+ <div class="awards">
+  <div class="award"><strong>1st in Class</strong><span>B.Sc. Geology–Geophysics, Alexandria University</span></div>
+  <div class="award"><strong>Employee of the Month</strong><span>MRM Department scale · March 2023</span></div>
+  <div class="award"><strong>Best Planned Task Observation</strong><span>Company scale · March 2023</span></div>
+  <div class="award"><strong>Top Hazard Reporting Performer</strong><span>MRM Department scale · 2025</span></div>
+  <div class="award"><strong>Leadership</strong><span>ACE Team Founder & President; GSAU Vice President</span></div>
+  <div class="award"><strong>Knowledge Sharing</strong><span>Experience in organizing training sessions and structured member-development activities.</span></div>
+ </div>
+</div></section>
+
+<section id="contact"><div class="container contact">
+ <div><div class="eyebrow">Let's connect</div><h2>Interested in working together?</h2><p style="color:var(--muted);margin-top:20px;max-width:520px">For recruitment opportunities, professional collaboration or discussion around mining geology and technical workflows, feel free to get in touch.</p></div>
+ <div class="contact-box">
+  <div class="contact-row"><small>Email</small><a href="mailto:mohamedehabfahmy@hotmail.com">mohamedehabfahmy@hotmail.com</a></div>
+  <div class="contact-row"><small>Phone</small><a href="tel:+201229192155">+20 122 919 2155</a></div>
+  <div class="contact-row"><small>LinkedIn</small><a href="https://www.linkedin.com/in/mohamed-ehab-fahmy/" target="_blank">linkedin.com/in/mohamed-ehab-fahmy</a></div>
+  <div class="contact-row"><small>Location</small><span>Marsa Alam, Egypt</span></div>
+ </div>
+</div></section>
+</main>
+<footer><div class="container" style="display:flex;justify-content:space-between;width:100%"><span>© Mohamed Ehab Mahmoud Fahmy</span><span>Open Pit Mine Geologist</span></div></footer>
+</body>
+</html>
