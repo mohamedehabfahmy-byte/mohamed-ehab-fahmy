@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#111412">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
 <title>Mohamed Ehab Fahmy | Open Pit Mine Geologist</title>
 <meta name="description" content="Mohamed Ehab Mahmoud Fahmy — Open Pit Mine Geologist specializing in grade control, ore control, blast movement monitoring, geological mapping and QA/QC.">
 
@@ -43,6 +43,16 @@
 :root{
   --bg:#111412; --panel:#181c19; --panel2:#202520; --text:#f1f0e8;
   --muted:#aeb3aa; --accent:#c6a15b; --line:#343a34; --max:1160px;
+  --accent-rgb:198,161,91; --bg-rgb:17,20,18; --nav-bg:rgba(17,20,18,.92);
+  --on-accent:#171711; --accent-hover:#d8b56d; --visual-num:rgba(241,240,232,.75);
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f6f5ef; --panel:#ffffff; --panel2:#ecebe3; --text:#1a1d1a;
+  --muted:#565c54; --accent:#8a6a25; --line:#d9d8cf;
+  --accent-rgb:138,106,37; --bg-rgb:246,245,239; --nav-bg:rgba(246,245,239,.92);
+  --on-accent:#ffffff; --accent-hover:#6f5419; --visual-num:rgba(26,29,26,.45);
+  color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
@@ -53,11 +63,11 @@ a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-of
 ol{list-style:none}
 .container{width:min(var(--max),92%);margin:auto}
 
-.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:#171711;padding:10px 14px;border-radius:6px;font-weight:700;z-index:50}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);color:var(--on-accent);padding:10px 14px;border-radius:6px;font-weight:700;z-index:50}
 .skip:focus{left:8px}
 
 /* Navigation */
-nav{position:sticky;top:0;z-index:20;background:rgba(17,20,18,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:20;background:var(--nav-bg);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .navin{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{font-weight:800;letter-spacing:.04em}
 .logo span{color:var(--accent)}
@@ -73,16 +83,23 @@ nav{position:sticky;top:0;z-index:20;background:rgba(17,20,18,.92);-webkit-backd
 .menu-links a{padding:10px 12px;border-radius:6px;color:var(--muted)}
 .menu-links a:hover{background:var(--panel2);color:var(--text)}
 
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--muted);cursor:pointer;transition:color .2s,border-color .2s}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.theme-toggle svg{width:20px;height:20px}
+.theme-toggle .moon{display:none}
+:root[data-theme="light"] .theme-toggle .sun{display:none}
+:root[data-theme="light"] .theme-toggle .moon{display:block}
 .btn{display:inline-block;padding:12px 18px;border:1px solid var(--accent);color:var(--accent);border-radius:6px;font-weight:700;font-size:.9rem;transition:background .2s,color .2s,transform .2s}
-.btn:hover{background:rgba(198,161,91,.12)}
-.btn.primary{background:var(--accent);color:#171711}
-.btn.primary:hover{background:#d8b56d;transform:translateY(-1px)}
+.btn:hover{background:rgba(var(--accent-rgb),.12)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.primary:hover{background:var(--accent-hover);transform:translateY(-1px)}
 
 /* Hero */
 .hero{min-height:calc(100vh - 72px);min-height:calc(100svh - 72px);display:grid;align-items:center;position:relative;overflow:hidden}
 .hero:before{content:"";position:absolute;inset:0;background:
-  linear-gradient(115deg,rgba(17,20,18,.98) 25%,rgba(17,20,18,.78) 62%,rgba(17,20,18,.35)),
-  repeating-linear-gradient(25deg,transparent 0 70px,rgba(198,161,91,.05) 71px 72px)}
+  linear-gradient(115deg,rgba(var(--bg-rgb),.98) 25%,rgba(var(--bg-rgb),.78) 62%,rgba(var(--bg-rgb),.35)),
+  repeating-linear-gradient(25deg,transparent 0 70px,rgba(var(--accent-rgb),.07) 71px 72px)}
 .hero-content{position:relative;padding:90px 0}
 .eyebrow{color:var(--accent);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
 h1{font-size:clamp(3rem,7vw,6.3rem);line-height:.98;max-width:850px;margin:18px 0 26px;letter-spacing:-.045em}
@@ -112,7 +129,7 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .role h3{font-size:1.35rem;margin:5px 0}
 .role h4{color:var(--muted);font-weight:500;margin-bottom:10px}
 .role p{color:var(--muted)}
-.edu{margin-top:34px;max-width:850px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:28px}
+.edu{max-width:850px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:28px}
 .edu h3{font-size:1.35rem;margin:5px 0}
 .edu h4{color:var(--muted);font-weight:500;margin-bottom:10px}
 .edu p{color:var(--muted)}
@@ -121,10 +138,10 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 /* Projects */
 .project{display:grid;grid-template-columns:1fr 1.6fr;border:1px solid var(--line);background:var(--panel);margin-bottom:18px;border-radius:8px;overflow:hidden}
 .project-visual{min-height:280px;background:
-  linear-gradient(135deg,rgba(198,161,91,.18),transparent),
-  repeating-linear-gradient(155deg,transparent 0 28px,rgba(198,161,91,.09) 29px 30px);
+  linear-gradient(135deg,rgba(var(--accent-rgb),.18),transparent),
+  repeating-linear-gradient(155deg,transparent 0 28px,rgba(var(--accent-rgb),.09) 29px 30px);
   display:flex;align-items:flex-end;padding:28px}
-.project-visual strong{font-size:3rem;font-family:Georgia,serif;color:rgba(241,240,232,.75)}
+.project-visual strong{font-size:3rem;font-family:Georgia,serif;color:var(--visual-num)}
 .project-body{padding:34px}
 .project-body h3{font-size:1.7rem;margin-bottom:8px}
 .project-body p{color:var(--muted);margin-bottom:16px}
@@ -152,8 +169,8 @@ section{padding:100px 0;border-top:1px solid var(--line)}
 .contact-row{padding:13px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
 .contact-row:last-child{border:0}
 .contact-row small{display:block;color:var(--accent);text-transform:uppercase;font-size:.7rem;letter-spacing:.1em}
-.contact-row a{color:var(--muted)}
-.contact-row a:hover{color:var(--text)}
+.contact-row a{color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.contact-row a:hover{color:var(--accent)}
 
 /* Footer */
 footer{padding:28px 0;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line)}
@@ -184,13 +201,17 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 <nav aria-label="Primary"><div class="container navin">
   <a class="logo" href="#home" aria-label="Mohamed Ehab Fahmy, home">ME<span>F</span></a>
   <div class="links">
-    <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#projects">Duties</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
   </div>
   <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Switch theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
       <div class="menu-links">
-        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#projects">Duties</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
       </div>
     </details>
     <!-- Keep Mohamed-Ehab-Fahmy-CV.pdf in the same folder as this file -->
@@ -201,8 +222,8 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 <main id="main">
 <section class="hero" id="home"><div class="container hero-content">
   <div class="eyebrow">Open Pit Mine Geologist · Sukari Gold Mines</div>
-  <h1>Turning geological data into better mining decisions.</h1>
-  <p>Mine Geologist with hands-on experience in grade control, ore control, blast movement monitoring, geological mapping, sampling QA/QC and short-term geological support in open-pit gold mining.</p>
+  <h1>Smarter Data. Better Geology. More Efficient Mining.</h1>
+  <p>An Open Pit Geologist with strong experience in grade control, ore spotting, geological mapping, structural interpretation, QA/QC, and data validation. Skilled in integrating geological data with mining plans to improve ore recovery, minimize dilution, and optimize production. Proficient in Vulcan, Surpac, Leapfrog, and Blast Movement Monitoring (BMT), with a strong focus on data accuracy, process optimization, and operational efficiency. Passionate about continuous improvement, developing standardized workflows, enhancing data management, and applying data-driven solutions to reduce errors and improve productivity while maintaining high standards of safety and quality.</p>
   <div class="actions"><a class="btn primary" href="#projects">Explore My Work</a><a class="btn" href="#contact">Contact Me</a></div>
   <div class="stats">
     <div class="stat"><strong>2021–Present</strong><span>Sukari Gold Mines</span></div>
@@ -227,6 +248,10 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
     <li class="role"><div class="date">Mar 2024 — Present</div><h3>Mine Geologist</h3><h4>Sukari Gold Mines · Marsa Alam, Egypt</h4><p>Grade control and ore control; ore spotting; ROM pad and crusher-feed support; clay-content management; BMM; geological mapping; block-model support; drilling forecasts; and weekly/monthly operational reporting.</p></li>
     <li class="role"><div class="date">Oct 2021 — Mar 2024</div><h3>Graduate Mine Geologist</h3><h4>Sukari Gold Mines · Marsa Alam, Egypt</h4><p>Grade-control drilling and design, drill-hole logging, sample dispatch, recovery monitoring, QA/QC, geological database validation, survey verification and pit-wall mapping.</p></li>
   </ol>
+</div></section>
+
+<section id="education"><div class="container">
+  <div class="section-head"><h2>Education</h2></div>
   <div class="edu">
     <div class="date">2016 — 2020</div>
     <h3>B.Sc. Geology–Geophysics</h3>
@@ -236,11 +261,11 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 </div></section>
 
 <section id="projects"><div class="container">
-  <div class="section-head"><h2>Selected<br>Projects</h2><p>Case-study areas showing how I apply geological information in exploration and mining workflows. Details are kept general to respect confidentiality.</p></div>
+  <div class="section-head"><h2>Work Duties and<br>Responsibilities</h2></div>
   <!-- TODO: add measurable outcomes to each project (e.g. tonnage, drill meters, turnaround time, reconciliation or dilution improvement). -->
   <article class="project"><div class="project-visual"><strong aria-hidden="true">01</strong></div><div class="project-body"><h3>Grade Control & Ore Control</h3><p>Bench-by-bench drilling design, logging, sampling, QA/QC and geological interpretation to support ore delineation and selective mining.</p><div class="tags"><span class="tag">GC Drilling</span><span class="tag">Ore Delineation</span><span class="tag">QA/QC</span><span class="tag">Ore Spotting</span></div></div></article>
   <article class="project"><div class="project-visual"><strong aria-hidden="true">02</strong></div><div class="project-body"><h3>Blast Movement Monitoring</h3><p>Design and implementation of BMM workflows, followed by movement analysis and post-blast ore-boundary updates.</p><div class="tags"><span class="tag">BMM Design</span><span class="tag">Movement Analysis</span><span class="tag">Post-Blast Interpretation</span></div></div></article>
-  <article class="project"><div class="project-visual"><strong aria-hidden="true">03</strong></div><div class="project-body"><h3>Weathering Profile & Underground Exploration</h3><p>Created a weathering profile after GC drilling and logging; correlated weathering, structures and mineralization and supported ore modelling and spotting decisions.</p><div class="tags"><span class="tag">Core Logging</span><span class="tag">Structures</span><span class="tag">Mineralization</span><span class="tag">Ore Modelling</span></div></div></article>
+  <article class="project"><div class="project-visual"><strong aria-hidden="true">03</strong></div><div class="project-body"><h3>Weathering Profile</h3><p>Created a weathering profile after GC drilling and logging; correlated weathering, structures and mineralization and supported ore modelling and spotting decisions.</p><div class="tags"><span class="tag">Core Logging</span><span class="tag">Structures</span><span class="tag">Mineralization</span><span class="tag">Ore Modelling</span></div></div></article>
   <article class="project"><div class="project-visual"><strong aria-hidden="true">04</strong></div><div class="project-body"><h3>Geological Mapping & Mineralization Controls</h3><p>Detailed pit-wall and floor mapping focused on lithological variation, alteration and structural controls, integrated with grade-control information.</p><div class="tags"><span class="tag">Mapping</span><span class="tag">Alteration</span><span class="tag">Structures</span><span class="tag">Interpretation</span></div></div></article>
 </div></section>
 
@@ -270,7 +295,7 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
   <div><div class="eyebrow">Let's connect</div><h2>Interested in working together?</h2><p class="contact-intro">For recruitment opportunities, professional collaboration or discussion around mining geology and technical workflows, feel free to get in touch.</p></div>
   <div class="contact-box">
     <div class="contact-row"><small>Email</small><a href="mailto:mohamedehabfahmy@hotmail.com">mohamedehabfahmy@hotmail.com</a></div>
-    <div class="contact-row"><small>Phone</small><a href="tel:+201229192155">+20 122 919 2155</a></div>
+    <div class="contact-row"><small>Phone</small><a href="tel:+201229192155">+201229192155</a></div>
     <div class="contact-row"><small>LinkedIn</small><a href="https://www.linkedin.com/in/mohamed-ehab-fahmy/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohamed-ehab-fahmy</a></div>
     <div class="contact-row"><small>Location</small><span>Marsa Alam, Egypt</span></div>
   </div>
@@ -278,5 +303,21 @@ footer .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 </main>
 
 <footer><div class="container"><span>© Mohamed Ehab Mahmoud Fahmy</span><span>Open Pit Mine Geologist</span></div></footer>
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById("themeToggle"),meta=document.querySelector('meta[name="theme-color"]');
+  function apply(t){
+    root.dataset.theme=t;
+    btn.setAttribute("aria-label",t==="light"?"Switch to dark mode":"Switch to light mode");
+    if(meta)meta.setAttribute("content",t==="light"?"#f6f5ef":"#111412");
+  }
+  apply(root.dataset.theme==="light"?"light":"dark");
+  btn.addEventListener("click",function(){
+    var next=root.dataset.theme==="light"?"dark":"light";
+    apply(next);
+    try{localStorage.setItem("theme",next)}catch(e){}
+  });
+})();
+</script>
 </body>
 </html>
